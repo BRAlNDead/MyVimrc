@@ -27,6 +27,9 @@ Plugin 'asins/vimcdoc'
 let helptags=$VIM."/vimfiles/doc"
 set helplang=cn
 
+"################## 中文输入法问题################
+Plugin 'https://github.com/vim-scripts/fcitx.vim'
+
 
 "################### 基础 ######################
 
@@ -324,7 +327,7 @@ let NERDTreeShowHidden=1
 let NERDTreeMinimalUI=1
 " 删除文件时自动删除文件对应 buffer
 let NERDTreeAutoDeleteBuffer=1
-" let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
+let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
 "let NERDTreeDirArrows=0
 "let g:netrw_home='~/bak'
 "close vim if the only window left open is a NERDTree

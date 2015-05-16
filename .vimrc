@@ -1,5 +1,5 @@
 "设置macvim shell
-set shell=bash\ -l
+" set shell=bash\ -l
 
 "==========================================
 " Sections:
@@ -76,7 +76,7 @@ if has('persistent_undo')
   set undodir=~/.vim/vimbk/
 endif
 
-"set wildignore=*.swp,*.bak,*.pyc,*.class,.svn
+set wildignore=*.swp,*.bak,*.pyc,*.class,.svn
 " 突出显示当前行等
 set cursorcolumn
 set cursorline          " 突出显示当前行
@@ -213,16 +213,25 @@ set formatoptions+=m
 set formatoptions+=B
 set iminsert=0 imsearch=0
 
-if has('multi_byte_ime')
-	"未开启IME时光标背景色
-	hi Cursor guifg=bg guibg=Orange gui=NONE
-	"开启IME时光标背景色
-	hi CursorIM guifg=NONE guibg=Skyblue gui=NONE
-	" 关闭Vim的自动切换IME输入法(插入模式和检索模式)
-	set iminsert=0 imsearch=0
-	" 插入模式输入法状态未被记录时，默认关闭IME
-	"inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
-endif
+" if has('multi_byte_ime')
+	" "未开启IME时光标背景色
+	" hi Cursor guifg=bg guibg=Orange gui=NONE
+	" "开启IME时光标背景色
+	" hi CursorIM guifg=NONE guibg=Skyblue gui=NONE
+	" " 关闭Vim的自动切换IME输入法(插入模式和检索模式)
+	" set iminsert=0 imsearch=0
+	" " 插入模式输入法状态未被记录时，默认关闭IME
+	" "inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+" endif
+
+if has("gui_running") 
+    set guioptions-=m " 隐藏菜单栏 
+    set guioptions-=T " 隐藏工具栏 
+    set guioptions-=L " 隐藏左侧滚动条 
+    set guioptions-=r " 隐藏右侧滚动条 
+    set guioptions-=b " 隐藏底部滚动条 
+    " set showtabline=0 " 隐藏Tab栏 
+endif 
 
 "==========================================
 " others 其它设置
@@ -234,7 +243,7 @@ autocmd! bufwritepost .vimrc source % " vimrc文件修改之后自动加载
 set completeopt=longest,menu
 
 " 增强模式中的命令行自动完成操作
-set wildmenu
+" set wildmenu
 " Ignore compiled files
 " set wildignore=*.o,*~,*.pyc,*.class
 
@@ -264,7 +273,7 @@ nnoremap gj j
 
 
 " disbale paste mode when leaving insert mode
-au InsertLeave * set nopaste
+" au InsertLeave * set nopaste
 
 
 "Smart way to move between windows 分屏窗口移动
@@ -279,14 +288,14 @@ noremap L $
 
 
 "Keep search pattern at the center of the screen."
-nnoremap <silent> n nzz
-nnoremap <silent> N Nzz
-nnoremap <silent> * *zz
-nnoremap <silent> # #zz
-nnoremap <silent> g* g*zz
+" nnoremap <silent> n nzz
+" nnoremap <silent> N Nzz
+" nnoremap <silent> * *zz
+" nnoremap <silent> # #zz
+" nnoremap <silent> g* g*zz
 
 " switch # *
-nnoremap # *
+" nnoremap # *
 nnoremap * #
 
 " 去掉搜索高亮
@@ -369,7 +378,7 @@ nnoremap ' `
 nnoremap ` '
 
 " remap U to <C-r> for easier redo
-nnoremap U <C-r>
+" nnoremap U <C-r>
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
